@@ -1,0 +1,1262 @@
+{
+	"info": {
+		"_postman_id": "886f7fb7-53a9-49b0-a2e4-dd6a1f021e6d",
+		"name": "Fake Store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14533632",
+		"_collection_link": "https://codermini00.postman.co/workspace/API_TESTCASE~1374f83e-22cf-4281-a373-4d254ff13df5/collection/14533632-886f7fb7-53a9-49b0-a2e4-dd6a1f021e6d?action=share&source=collection_link&creator=14533632"
+	},
+	"item": [
+		{
+			"name": "Rest API",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Get all products",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"status code is 200\", ()=>{\r",
+											"    pm.response.to.have.status(200)\r",
+											"})\r",
+											"\r",
+											"pm.test('Successfully Get Test', ()=>{\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200,201,202])\r",
+											"})\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a single product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/products/{{id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"{{id}}"
+									],
+									"query": [
+										{
+											"key": null,
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create new products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"New Cotton Shirt\",\r\n  \"price\": 1100,\r\n  \"description\": \"Very nice and attractive\",\r\n  \"categoryId\": 1,\r\n  \"images\": [\"https://placeimg.com/640/480/cotton\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/products/",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update products",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Kaggle shirt\",\r\n  \"price\": 1200,\r\n  \"images\": [\r\n        \"https://placeimg.com/640/480/any\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/products/{{id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products/{{id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pagination Product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"  pm.expect(pm.response.responseTime).to.be.below(300);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products?offset=0&limit=10",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pagination2 ptroduct",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products?offset=10&limit=10",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "10"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Filter Products",
+					"item": [
+						{
+							"name": "Filter By title",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products/?title=Generic",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										""
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Generic"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter by price",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products/?price=110",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										""
+									],
+									"query": [
+										{
+											"key": "price",
+											"value": "110"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Price Range",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products/?price_min=900&price_max=10000",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										""
+									],
+									"query": [
+										{
+											"key": "price_min",
+											"value": "900"
+										},
+										{
+											"key": "price_max",
+											"value": "10000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter by category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products/?categoryId=3",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										""
+									],
+									"query": [
+										{
+											"key": "categoryId",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Join Filter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>No Data Available</th>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/products/?price_min=900&price_max=10000&categoryId=1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										""
+									],
+									"query": [
+										{
+											"key": "price_min",
+											"value": "900"
+										},
+										{
+											"key": "price_max",
+											"value": "10000"
+										},
+										{
+											"key": "categoryId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Get all Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/categories",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a single Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/categories/{{id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Categories",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Grosery\",\r\n  \"image\": \"https://placeimg.com/640/480/any\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/categories/",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upadate Categories",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Computer Equipments\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/categories/{{ID}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"{{ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Categories",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/categories/{{ID}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"{{ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all products By Category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/categories/{{id}}/products",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"{{id}}",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Get all Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/users",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/users/{{id}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Arif Shumon\",\r\n  \"email\": \"AS@gmail.com\",\r\n  \"password\": \"1234\",\r\n  \"avatar\": \"https://picsum.photos/800\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/users/",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a user",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"Rudro@mail.com\",\r\n  \"name\": \"Rudro Sen\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/users/{{ID}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{{ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"arif@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/users/is-available",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"is-available"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/users/{{ID}}",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"{{ID}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Authentication",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"AS@gmail.com\",\r\n  \"password\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get user with session",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMzLCJpYXQiOjE3MjYxMjQ4NTMsImV4cCI6MTcyNzg1Mjg1M30.DHeysyHKGcSw07dF6jJNulo8TWmOPgV26rC63Wwi8-8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/profile",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get new session with Refresh token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMzLCJpYXQiOjE3MjYxMjQ4NTMsImV4cCI6MTcyNjE2MDg1M30.QzHwLrZ0MIwUv16U-1QGeHvHCFecGYRMZrjkxb_4lTM\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/refresh-token",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"refresh-token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GraphQL",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Get All Products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  products {\r\n    id\r\n    title\r\n    price\r\n    description\r\n    images\r\n    category {\r\n      id\r\n      name\r\n      image\r\n    }\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "{\r\n  product(id: \"122\") {\r\n    title\r\n    price\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get product by alais",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "{\r\n  ProductA: product(id: \"33\") {\r\n    title\r\n    price\r\n  }\r\n  ProductB: product(id: \"92\") {\r\n    title\r\n    price\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation {\r\n  addProduct(\r\n    data: {\r\n      title: \"Mobile Phones\"\r\n      price: 10\r\n      description: \"A description\"\r\n      categoryId: 1\r\n      images: [\"https://placeimg.com/640/480/any\"]\r\n    }\r\n  ) {\r\n    title\r\n    price\r\n    images\r\n    category {\r\n      id\r\n      name\r\n      image\r\n    }\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation {\r\n  updateProduct(id: \"120\", changes: { title: \"Sun glass\" }) {\r\n    title\r\n    price\r\n    images\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation {\r\n  deleteProduct(id: 120)\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pagination products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  products(limit: 5, offset: 0) {\r\n    title\r\n    price\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Filter Products",
+					"item": [
+						{
+							"name": "Filter by title",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  products(title: \"Generic\") {\r\n    title\r\n    price\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter by Price",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  products(price: 100) {\r\n    title\r\n    price\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter the price range",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  products(price_min: 100, price_max: 200) {\r\n    title\r\n    price\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter by category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  products(categoryId: 1) {\r\n    title\r\n    price\r\n    category {\r\n      id\r\n      name\r\n    }\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Join filter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  products( categoryId: 1, price_min: 100, price_max: 1000) {\r\n    title\r\n    price\r\n    category {\r\n      id\r\n      name\r\n    }\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Get all Categories",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  categories {\r\n    id\r\n    name\r\n    image\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single categories",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  category(id: 1) {\r\n    id\r\n    name\r\n    image\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create New Categories",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation {\r\n  addCategory(\r\n    data: { name: \"Computer Category\", image: \"https://placeimg.com/640/480/any\" }\r\n  ) {\r\n    id\r\n    name\r\n    image\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/graphql",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
