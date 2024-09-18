@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Fake Store API" tests="42" time="13.731">
+  <testsuite name="Rest API / Products / Get all products" id="db76c2ec-56c8-41a7-992e-1445340ddf51" timestamp="2024-09-17T11:29:24.860Z" tests="2" failures="0" errors="0" time="1.393">
+    <testcase name="status code is 200" time="1.393" classname="RestApiProductsGetAllProducts"/>
+    <testcase name="Successfully Get Test" time="1.393" classname="RestApiProductsGetAllProducts"/>
+  </testsuite>
+  <testsuite name="Rest API / Products / Get a single product" id="784d4a15-da77-4787-8cc5-694161af96dc" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.317"/>
+  <testsuite name="Rest API / Products / Create new products" id="6422c6b9-3a59-4685-936e-f774bb3eef00" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.310"/>
+  <testsuite name="Rest API / Products / Update products" id="d24a2a40-d03a-4ead-a402-d8e8a545ece6" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.298"/>
+  <testsuite name="Rest API / Products / Delete Product" id="b44640eb-64de-4851-a5f5-919d243b8436" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.307"/>
+  <testsuite name="Rest API / Products / Pagination Product" id="8966f9f9-d468-4871-8048-388c3a88c037" timestamp="2024-09-17T11:29:24.860Z" tests="1" failures="0" errors="0" time="0.294">
+    <testcase name="Response time is less than 200ms" time="0.294" classname="RestApiProductsPaginationProduct"/>
+  </testsuite>
+  <testsuite name="Rest API / Products / Pagination2 ptroduct" id="12159dbd-3cc0-4213-8ea1-da690b5ce9fb" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.288"/>
+  <testsuite name="Rest API / Filter Products / Filter By title" id="ba4859c8-b1bb-48cb-8bd6-2512055bbb26" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.287"/>
+  <testsuite name="Rest API / Filter Products / Filter by price" id="9085aedf-00e0-4361-8b84-7d4828e21084" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.287"/>
+  <testsuite name="Rest API / Filter Products / Price Range" id="250a591b-6efa-48c8-8d32-12c7b15c1dbf" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.299"/>
+  <testsuite name="Rest API / Filter Products / Filter by category" id="e1df7788-6d56-473c-9595-6da8349d11ed" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.287"/>
+  <testsuite name="Rest API / Filter Products / Join Filter" id="0add3fa7-ceb2-44ac-9fe0-c959dffa502f" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.288"/>
+  <testsuite name="Rest API / Categories / Get all Categories" id="f535549a-0c07-4b99-a509-2837cd939b89" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.288"/>
+  <testsuite name="Rest API / Categories / Get a single Categories" id="f8ed539f-670c-4d49-a05b-b448ce1e8b6e" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.285"/>
+  <testsuite name="Rest API / Categories / Create Categories" id="5a5deca8-33e4-45b8-9660-5866da1891b2" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.288"/>
+  <testsuite name="Rest API / Categories / Upadate Categories" id="e39af5de-c501-47c5-b3d8-0f6d24e28868" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.285"/>
+  <testsuite name="Rest API / Categories / Delete Categories" id="3669b1fd-286e-47e8-b2ad-641a95be8aab" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.287"/>
+  <testsuite name="Rest API / Categories / Get all products By Category" id="4ac90185-b615-49bc-bb3c-ef621d368618" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.286"/>
+  <testsuite name="Rest API / Users / Get all Users" id="277a3878-a5b2-427d-ac0d-1c63ee576dbb" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.288"/>
+  <testsuite name="Rest API / Users / Get Single Users" id="4f1b315f-e3b3-4890-9920-b13b0f93ee40" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.286"/>
+  <testsuite name="Rest API / Users / Create a User" id="20464ef4-1638-45d2-8a97-be3efee1780f" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.302"/>
+  <testsuite name="Rest API / Users / Update a user" id="01339406-0f0b-410e-a6c9-6779a29673be" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.292"/>
+  <testsuite name="Rest API / Users / Check email" id="54742dc7-69cd-4b11-bbae-98f77dd6c065" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.292"/>
+  <testsuite name="Rest API / Users / Delete user" id="824c5dc8-8228-48c4-ab21-2b5552a0a3e3" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.300"/>
+  <testsuite name="Rest API / Auth / Authentication" id="16433c44-d734-45b1-a17b-a7d3af12b4d2" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.302"/>
+  <testsuite name="Rest API / Auth / Get user with session" id="ee2562d9-e3b7-40ac-9066-72a9b1fff2a6" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.297"/>
+  <testsuite name="Rest API / Auth / Get new session with Refresh token" id="0fd2a328-ec97-4b1b-b64b-50c7e9ddf329" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.285"/>
+  <testsuite name="GraphQL / Products / Get All Products" id="3850bb29-2da2-4aff-a807-19771d25d473" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.654"/>
+  <testsuite name="GraphQL / Products / Get Single products" id="84b61eb8-f759-449e-bde5-5890002591e6" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.289"/>
+  <testsuite name="GraphQL / Products / Get product by alais" id="48aa22de-36c4-47c8-b5e7-795756365a34" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.288"/>
+  <testsuite name="GraphQL / Products / Create Products" id="b5e72737-1a1d-4c41-92d4-208f25d5e75f" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.286"/>
+  <testsuite name="GraphQL / Products / Update products" id="3509d976-a88a-4ecf-b748-0ebd5201d70d" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.299"/>
+  <testsuite name="GraphQL / Products / Delete products" id="75c7e6e2-4c80-4acb-8068-9bd4dee827d7" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.285"/>
+  <testsuite name="GraphQL / Products / Pagination products" id="e85bdd2a-7dc2-42d6-8980-19f9de18b6c0" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.289"/>
+  <testsuite name="GraphQL / Filter Products / Filter by title" id="609d6c1e-ef82-4dbc-a660-d4130963cbf8" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.283"/>
+  <testsuite name="GraphQL / Filter Products / Filter by Price" id="469b15fe-825f-49ce-a906-6e896ec632a7" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.298"/>
+  <testsuite name="GraphQL / Filter Products / Filter the price range" id="006d43a7-f61e-4252-a8d9-18a77fd3d925" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.293"/>
+  <testsuite name="GraphQL / Filter Products / Filter by category" id="5608f3fd-9389-4c2e-83b2-b2d4d00f18c5" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.294"/>
+  <testsuite name="GraphQL / Filter Products / Join filter" id="592297c4-ae65-4c23-9bcf-44d3206069d0" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.290"/>
+  <testsuite name="GraphQL / Categories / Get all Categories" id="7a5fd1bf-e5c1-4e96-a82b-66ec288d474f" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.288"/>
+  <testsuite name="GraphQL / Categories / Get Single categories" id="8dfe0476-a19a-4898-90ce-715bad2bdd22" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.287"/>
+  <testsuite name="GraphQL / Categories / Create New Categories" id="70fe2ae6-5e02-4a45-9344-8b6fd935bd01" timestamp="2024-09-17T11:29:24.860Z" tests="0" failures="0" errors="0" time="0.290"/>
+</testsuites>
